@@ -1,0 +1,118 @@
+/* ── Polish layer: fixes found in the page-by-page review (loaded last) ── */
+
+/* Sign-in cards: the heading used an undefined font variable and fell back to Times */
+.signin-card h2{font:600 26px/1.12 var(--font-display);max-width:18ch}
+.paper .dn-fine,.signin-card .dn-fine,.staff-card .dn-fine{color:var(--ink-soft)}
+.paper .dn-fine svg{color:var(--metal-gold)}
+
+/* Outlined buttons on the cream "paper" cards looked disabled */
+.paper .btn-line,.pay-card .btn-line,.cash-card .btn-line{color:var(--burgundy);background:#fffaf0;border-color:color-mix(in oklab,var(--metal-gold) 70%,transparent)}
+.paper .btn-line:hover,.pay-card .btn-line:hover{background:#fff4dc;border-color:var(--metal-gold)}
+.paper .btn-ghost{color:var(--burgundy)}
+
+/* Google's button: white, its own mark, never looks disabled */
+.google-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;height:52px;padding:0 18px;border-radius:12px;border:1px solid #dadce0;background:#fff;color:#1f1f1f;font:600 15.5px var(--font-sans);box-shadow:0 1px 2px rgba(60,64,67,.25),0 6px 18px -8px rgba(0,0,0,.35);cursor:pointer;transition:box-shadow .2s,transform .15s,background .2s}
+.google-btn:hover{background:#f8faff;box-shadow:0 2px 6px rgba(60,64,67,.3),0 10px 24px -10px rgba(0,0,0,.4)}
+.google-btn:active{transform:translateY(1px)}
+.google-btn:focus-visible{outline:3px solid #8ab4f8;outline-offset:2px}
+.google-btn:disabled{opacity:.75;cursor:progress}
+.google-btn .google-g,.google-btn .spin{width:22px;height:22px;flex-shrink:0}
+
+/* Staff sign-in & password screens */
+.staff-card{display:grid;gap:4px;padding-top:28px}
+.staff-seal{justify-self:center;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:color-mix(in oklab,var(--warm-gold) 26%,transparent);color:var(--metal-gold);margin-bottom:6px}
+.staff-seal svg{width:24px;height:24px}
+.staff-note{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:12.5px;line-height:1.45;color:var(--ink-soft)}
+.staff-note svg{width:15px;height:15px;flex-shrink:0;margin-top:2px;color:var(--metal-gold)}
+.pw-wrap{position:relative}.pw-wrap .input{padding-right:48px}
+.pw-eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:42px;height:42px;display:grid;place-items:center;border:0;background:transparent;color:var(--ink-soft);border-radius:10px;cursor:pointer}
+.pw-eye svg{width:19px;height:19px}.pw-eye:hover{color:var(--burgundy)}
+.pw-rules{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:4px;font-size:12.5px}
+.pw-rules li{display:flex;align-items:center;gap:6px;color:#9a3b33}.pw-rules li.ok{color:#0c6c47}.pw-rules svg{width:14px;height:14px;flex-shrink:0}
+.pw-temp{display:flex;gap:6px}.pw-temp .input{flex:1;font:600 15px ui-monospace,monospace;letter-spacing:.04em}
+.pw-modal .paper{box-shadow:none;padding:0;background:none}.pw-modal .paper:before,.pw-modal .ornament,.pw-modal .staff-seal{display:none}
+.ad-lock{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.ad-me button+button{margin-left:4px}
+
+/* Admin tables become labelled cards on phones (every DataTable) */
+@media(max-width:700px){
+  .ad-cards,.ad-cards tbody,.ad-cards tr,.ad-cards td{display:block;width:100%}
+  .ad-cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ad-cards tbody{display:grid;gap:10px;padding:12px}
+  .ad-cards tr{border:1px solid #eadcc0;border-radius:14px;background:#fffdf8;padding:6px 14px;box-shadow:0 2px 6px -4px rgba(60,20,30,.25)}
+  .ad-cards td{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0!important;border-bottom:1px dashed #f0e4ca!important;text-align:right!important;min-height:40px}
+  .ad-cards td:last-child{border-bottom:0!important}
+  .ad-cards td::before{content:attr(data-label);flex-shrink:0;font:600 11.5px var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);text-align:left}
+  .ad-cards td:not([data-label])::before{display:none}
+  .ad-cards td:first-child{justify-content:flex-start;text-align:left!important;border-bottom:1px solid #f0e4ca!important;padding-bottom:10px!important}
+  .ad-cards td:first-child::before{display:none}
+  .ad-cards td>*{min-width:0}
+  .ad-cards .ad-code{white-space:nowrap}
+  .ad-cards .ad-rv.compact{justify-content:flex-end;flex-wrap:wrap}
+  .ad-cards .ad-who{text-align:left}
+  .ad-scroll:has(.ad-cards){overflow:visible}
+}
+.ad-code{white-space:nowrap}
+
+/* The closed mobile sidebar's shadow bled onto the page edge */
+@media(max-width:1040px){.ad-side:not(.open){box-shadow:none;visibility:hidden;transition:transform .35s var(--ease-out),visibility 0s .35s}.ad-side.open{visibility:visible;transition:transform .35s var(--ease-out)}}
+
+/* Session management */
+.account-line{flex-wrap:wrap;gap:6px 14px}.account-line .inline-link{display:inline-flex;align-items:center;gap:4px}.account-email{opacity:.85}
+.ad-sessions{list-style:none;margin:6px 0 14px;padding:0;display:grid;gap:8px}
+.ad-sessions li{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;border:1px solid #eadcc0;background:#fffdf8}
+.ad-sessions li>div{flex:1;min-width:0}.ad-sessions b{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px}.ad-sessions small{display:block;color:var(--ink-soft);font-size:12.5px;overflow-wrap:anywhere}
+.ad-sess-ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:#f6ecd6;color:var(--metal-gold);flex-shrink:0}.ad-sess-ico svg{width:19px;height:19px}
+.ad-h-ico{width:22px;height:22px;vertical-align:-3px;margin-right:6px;color:var(--metal-gold)}
+@media(max-width:520px){.ad-sessions li{flex-wrap:wrap}.ad-sessions li .btn{margin-left:50px}}
+.ad-icon-btn{width:36px;padding:0!important;justify-content:center}
+.ad-me{gap:8px}.ad-me>div{min-width:0;flex:1}.ad-me>div b,.ad-me>div small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.ad-me button{width:32px;height:32px;flex-shrink:0}
+
+/* ── fire: many drifting embers (per-ember variables set in index.tsx) ── */
+.particles i{left:var(--x,15%)!important;bottom:-2%!important;width:var(--s,3px)!important;height:var(--s,3px)!important;animation:ember-rise var(--d,7s) linear var(--t,0s) infinite!important;background:radial-gradient(circle,#fff2b0,#ffb13b 55%,#ff5a1f)!important;box-shadow:0 0 8px 2px rgba(255,140,40,.55)!important;opacity:0;will-change:transform,opacity}
+@keyframes ember-rise{0%{transform:translate3d(0,0,0) scale(1);opacity:0}12%{opacity:.95}60%{opacity:.7}100%{transform:translate3d(var(--dx,0),-70vh,0) scale(.3);opacity:0}}
+@media (max-width:700px){.particles i:nth-child(n+37){display:none}}
+
+/* ── press feedback ── */
+button:not(:disabled),.btn,[role="button"]{transition:transform .12s ease,box-shadow .2s ease,filter .15s ease;-webkit-tap-highlight-color:transparent}
+button:not(:disabled):active,.btn:active,[role="button"]:active{transform:scale(.95);filter:brightness(1.12)}
+.tap{animation:tap-ring .45s ease-out}
+@keyframes tap-ring{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--primary) 70%,transparent)}100%{box-shadow:0 0 0 16px transparent}}
+
+/* ── server error popup ── */
+.e404-back{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.66);backdrop-filter:blur(4px);animation:rise-in .2s both}
+.e404{position:relative;width:min(380px,100%);padding:28px 22px 22px;border-radius:16px;text-align:center;background:var(--card);border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.e404-code{display:block;font-family:var(--font-display);font-size:64px;line-height:1;color:var(--gold-light)}
+.e404 h2{font-size:22px;margin:6px 0 8px}.e404 p{color:var(--muted-foreground);font-size:14px;margin:0 0 18px}.e404-fine{margin-top:6px}
+.e404-x{position:absolute;top:10px;right:10px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:transparent;border:0;color:var(--muted-foreground)}
+.e404 .btn{display:flex;gap:8px;align-items:center;justify-content:center}
+@media (prefers-reduced-motion:reduce){.particles i{animation:none!important;opacity:.5}.tap{animation:none}}
+
+/* manual entry: a plain, visible text link */
+.manual-link{display:inline-flex;align-items:center;gap:6px;margin:2px 0 16px;padding:6px 0;background:none;border:0;color:var(--burgundy);font-weight:700;font-size:14px;text-align:left;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* ── low-end phones (≤4 GB RAM / ≤4 cores / data-saver): keep the look, drop what makes it janky ── */
+.dn-lite *,.dn-lite *::before,.dn-lite *::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;text-shadow:none}
+.dn-lite .dn-lamps,.dn-lite .dn-screen::after,.dn-lite .hero-grain{display:none!important}
+.dn-lite .dn-mandala{animation:none!important}
+.dn-lite .particles i:nth-child(n+11){display:none}
+.dn-lite .particles i{box-shadow:none!important;animation-duration:calc(var(--d,7s) * 1.4)!important}
+.dn-lite *{scroll-behavior:auto!important}
+.dn-lite .reveal,.dn-lite [data-reveal]{transition:none!important}
+.dn-lite .tap{animation:none}
+.nav-out{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:12px 0;color:var(--muted-foreground);font:inherit;font-size:13px;cursor:pointer}
+.nav-out:hover{color:var(--gold-light)}
+
+.staff-google{display:grid;gap:10px;margin-bottom:14px}
+.staff-or{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em}
+.staff-or::before,.staff-or::after{content:"";flex:1;height:1px;background:currentColor;opacity:.25}
+.form-alert.pending{background:rgba(212,160,23,.12);border-color:rgba(212,160,23,.5);color:inherit}
+.pin-card{max-width:380px;margin:24px auto;display:grid;gap:14px;text-align:center}
+.pin-card input{text-align:center;letter-spacing:.5em;font-size:24px}
+
+.manual-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.manual-head .fetched-tag{margin:0}
+.manual-close{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1px solid color-mix(in oklab,#7a5410 40%,transparent);background:transparent;color:#7a5410;cursor:pointer}
+.manual-close:hover{background:color-mix(in oklab,#7a5410 12%,transparent)}
+.manual-cancel{background:none;border:0;padding:6px 10px;color:#7a5410;font:600 14px var(--font-sans);text-decoration:underline;text-underline-offset:3px;cursor:pointer}

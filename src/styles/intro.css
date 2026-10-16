@@ -1,0 +1,21 @@
+/* ── Opening titles. Everything moving is drawn on the canvas; the CSS only shows/hides the overlay. ── */
+.intro{display:none}
+.dn-intro-on .intro{display:block;position:fixed;inset:0;z-index:1000;background:#000;overflow:hidden;cursor:pointer;
+  animation:intro-failsafe .6s ease 8s forwards}           /* if JavaScript never runs, the black screen leaves on its own */
+.dn-intro-js .intro{animation:none}                          /* JavaScript is in charge */
+@keyframes intro-failsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
+.dn-intro-lock body{overflow:hidden}                          /* scroll lock comes from JS only, so it can never get stuck */
+.intro.leaving{opacity:0;transition:opacity .5s ease}
+
+.intro-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.intro-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.6) 100%)}
+
+/* a thin gold line while the first pages download (instead of a spinner) */
+.intro-loader{position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 64px);width:120px;height:2px;margin-left:-60px;overflow:hidden;background:rgba(244,213,141,.12);border-radius:2px;transition:opacity .3s}
+.intro-loader i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#f4d58d,transparent);transform:translateX(-100%);animation:intro-load 1.1s ease-in-out infinite}
+@keyframes intro-load{to{transform:translateX(100%)}}
+.intro.playing .intro-loader,.intro.leaving .intro-loader{opacity:0}
+
+.intro-skip{position:absolute;right:max(16px,env(safe-area-inset-right));bottom:calc(env(safe-area-inset-bottom) + 18px);padding:9px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.45);color:rgba(255,255,255,.85);font:600 13px var(--font-sans);letter-spacing:.06em;cursor:pointer}
+.intro-skip:focus-visible{outline:2px solid #f4d58d;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.intro{display:none!important}}

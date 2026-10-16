@@ -1,0 +1,4 @@
+{
+  // Nitro merges this into the generated .output/server/wrangler.json, so every build deploys as the same Worker.
+  "name": "dandiyanight"
+}

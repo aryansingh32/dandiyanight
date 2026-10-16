@@ -1,0 +1,107 @@
+/* ── Manual payments: student screens ── */
+.pay{display:grid;gap:14px;margin-top:18px}
+.pay-skeleton{height:260px;margin-top:18px;border-radius:18px;background:linear-gradient(100deg,color-mix(in oklab,var(--midnight) 70%,transparent) 30%,color-mix(in oklab,var(--antique) 14%,transparent) 50%,color-mix(in oklab,var(--midnight) 70%,transparent) 70%);background-size:200% 100%;animation:pay-shimmer 1.4s linear infinite}
+@keyframes pay-shimmer{to{background-position:-200% 0}}
+.pay-alert{margin:0}
+.pay-box{display:grid;justify-items:center;gap:10px;text-align:center;padding:26px 20px;border-radius:18px;border:1px solid color-mix(in oklab,var(--antique) 30%,transparent);background:color-mix(in oklab,var(--midnight) 55%,transparent)}
+.pay-box svg{width:34px;height:34px;color:var(--champagne)}.pay-box h3{font-size:26px}.pay-box p{color:color-mix(in oklab,var(--parchment) 75%,transparent);font-size:14px;max-width:34ch}
+.pay-amount{display:flex;justify-content:space-between;align-items:baseline;padding:12px 16px;border-radius:14px;background:color-mix(in oklab,var(--midnight) 55%,transparent);border:1px solid color-mix(in oklab,var(--antique) 26%,transparent)}
+.pay-amount small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--antique);font-weight:600}.pay-amount strong{font:600 34px/1 var(--font-display);color:var(--champagne)}
+.pay-tabs{display:grid;gap:8px}
+.pay-tabs button{display:flex;align-items:center;gap:14px;width:100%;padding:13px 14px;border-radius:14px;border:1.5px solid color-mix(in oklab,var(--antique) 28%,transparent);background:color-mix(in oklab,var(--midnight) 50%,transparent);color:var(--ivory);font:500 15px var(--font-sans);text-align:left;cursor:pointer;transition:all .25s}
+.pay-tabs button>svg{width:22px;height:22px;color:var(--champagne);flex-shrink:0}.pay-tabs small{display:block;font-size:12px;font-weight:400;color:color-mix(in oklab,var(--parchment) 62%,transparent)}
+.pay-tabs .dot{margin-left:auto;width:20px;height:20px;border-radius:50%;border:2px solid color-mix(in oklab,var(--antique) 55%,transparent);flex-shrink:0}
+.pay-tabs button[aria-checked="true"]{border-color:var(--warm-gold);background:color-mix(in oklab,var(--warm-gold) 14%,var(--midnight))}.pay-tabs button[aria-checked="true"] .dot{border-color:var(--warm-gold);background:radial-gradient(circle,var(--warm-gold) 0 45%,transparent 50%)}
+.pay-card{position:relative;color:var(--ink);background:var(--paper-grain),linear-gradient(180deg,var(--ivory),var(--parchment));background-blend-mode:multiply,normal;border-radius:18px;padding:20px 18px 20px;box-shadow:0 24px 60px -24px rgba(0,0,0,.7),0 0 0 1px color-mix(in oklab,var(--antique) 55%,transparent);display:grid;gap:14px}
+.pay-qr{display:grid;justify-items:center;gap:8px;text-align:center}
+.pay-qr img{width:min(270px,76vw);aspect-ratio:1;object-fit:contain;background:#fff;border-radius:14px;padding:10px;border:1px solid color-mix(in oklab,var(--metal-gold) 40%,transparent);box-shadow:0 8px 24px -12px rgba(0,0,0,.4)}
+.pay-qr-missing{width:min(270px,76vw);aspect-ratio:1;display:grid;place-items:center;border-radius:14px;background:#fff;color:var(--ink-soft)}
+.pay-qr p{font-size:14px;color:var(--ink-soft)}.pay-qr b{color:var(--burgundy)}
+.pay-payee{display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:center;align-items:center;font-size:13.5px}
+.pay-payee button{display:inline-flex;align-items:center;gap:7px;border:1px dashed color-mix(in oklab,var(--metal-gold) 60%,transparent);background:#fff8e8;color:var(--ink);padding:6px 10px;border-radius:8px;cursor:pointer}.pay-payee code{font:600 13px ui-monospace,monospace;overflow-wrap:anywhere}.pay-payee button svg{width:14px;height:14px;color:var(--metal-gold)}
+.pay-steps{margin:0;padding:12px 14px 12px 32px;border-radius:12px;background:color-mix(in oklab,var(--burgundy) 6%,transparent);font-size:13.5px;line-height:1.5;display:grid;gap:5px}
+.pay-card .field label{color:var(--ink)}
+.pay-drop{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:92px;border-radius:14px;border:2px dashed color-mix(in oklab,var(--metal-gold) 60%,transparent);background:#fffaf0;color:var(--burgundy);font:600 14.5px var(--font-sans);cursor:pointer}.pay-drop svg{width:22px;height:22px}.pay-drop:disabled{opacity:.6;cursor:progress}
+.pay-shot{display:flex;gap:12px;align-items:center;padding:10px;border-radius:14px;border:1px solid color-mix(in oklab,var(--metal-gold) 45%,transparent);background:#fffaf0}.pay-shot img{width:72px;height:96px;object-fit:cover;object-position:top;border-radius:8px;background:#fff;border:1px solid #e4d8c2}
+.pay-shot b{display:block;font-size:13.5px;margin-bottom:6px;overflow-wrap:anywhere}.pay-shot .inline-link{margin-right:12px;color:var(--burgundy)}
+.pay-note{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.pay-card .dn-fine{color:var(--ink-soft)}
+.cash-card{padding:14px 16px;border-radius:14px;background:#fffaf0;border:1px solid color-mix(in oklab,var(--metal-gold) 45%,transparent)}
+.cash-card h3{font:600 24px var(--font-display);color:var(--burgundy)}.cash-card dl{display:grid;gap:10px;margin:10px 0 0}.cash-card dl>div{display:grid;gap:2px}
+.cash-card dt{display:flex;align-items:center;gap:6px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--metal-gold);font-weight:700}.cash-card dt svg{width:14px;height:14px}.cash-card dd{margin:0;font-size:16px;font-weight:600}
+.cash-card p{margin:12px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+/* waiting for the organisers */
+.await-card{display:grid;justify-items:center;text-align:center;gap:10px;padding:28px 20px 24px}
+.await-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:color-mix(in oklab,var(--warm-gold) 24%,transparent);color:var(--metal-gold);animation:await-pulse 2.4s ease-in-out infinite}.await-icon svg{width:30px;height:30px}
+@keyframes await-pulse{50%{transform:scale(1.07);box-shadow:0 0 0 12px color-mix(in oklab,var(--warm-gold) 10%,transparent)}}
+.await-card h1{font-size:clamp(28px,8.5vw,36px);color:var(--burgundy);line-height:1.05}
+.await-msg{font-size:16px;font-weight:600;color:var(--ink);max-width:36ch;line-height:1.4}.await-sub{font-size:13.5px;color:var(--ink-soft);max-width:38ch;line-height:1.5}
+.await-details{width:100%;margin:6px 0 0;text-align:left;border-radius:14px;border:1px solid color-mix(in oklab,var(--metal-gold) 35%,transparent);background:#fffaf0}
+.await-details>div{display:flex;justify-content:space-between;gap:16px;padding:10px 14px;font-size:13.5px}.await-details>div+div{border-top:1px solid #efe3cc}.await-details dt{color:var(--ink-soft)}.await-details dd{margin:0;font-weight:600;text-align:right;overflow-wrap:anywhere}.await-details code{font:600 13px ui-monospace,monospace}
+.await-card .cash-card{width:100%;text-align:left}.await-actions{display:grid;gap:8px;width:100%;margin-top:6px}
+@media(prefers-reduced-motion:reduce){.await-icon,.pay-skeleton{animation:none}}
+
+/* ── Manual payments: admin ── */
+.ad-rv{display:flex;flex-wrap:wrap;gap:6px}
+.ad-rv button{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 12px;border-radius:10px;border:1px solid #dccfb3;background:#fffdf8;color:var(--ink);font:600 13px var(--font-sans);cursor:pointer;transition:background .2s,border-color .2s,transform .15s}
+.ad-rv button svg{width:15px;height:15px}.ad-rv button:hover:not(:disabled){transform:translateY(-1px)}
+.ad-rv button.rv-ok{color:#0c6c47}.ad-rv button.rv-ok:hover:not(:disabled){background:#dcf5ea;border-color:#a9e4cb}
+.ad-rv button.rv-bad{color:#a2302a}.ad-rv button.rv-bad:hover:not(:disabled){background:#fde1de;border-color:#f3b4ae}
+.ad-rv button.rv-warn{color:#7a5410}.ad-rv button.rv-warn:hover:not(:disabled){background:#fdf0cf;border-color:#ecd18e}
+.ad-rv button.rv-gold{color:#6b4710}.ad-rv button.rv-gold:hover:not(:disabled){background:#f6e7c1;border-color:#dcbd77}
+.ad-rv button.on{box-shadow:inset 0 0 0 2px currentColor;background:#fff;opacity:1}.ad-rv button:disabled:not(.on){opacity:.55;cursor:progress}
+.ad-rv.compact{flex-wrap:nowrap;gap:4px}.ad-rv.compact button{width:34px;height:34px;padding:0;justify-content:center}
+.ad-dr-body>.ad-rv{margin-bottom:14px}
+.ad-flag{display:flex;gap:8px;align-items:flex-start;margin:0 0 14px;padding:10px 12px;border-radius:10px;background:#fde1de;border:1px solid #f3b4ae;color:#7d231c;font-size:13px;line-height:1.45}.ad-flag svg{width:16px;height:16px;flex-shrink:0;margin-top:2px}
+.pay-head{padding-right:56px}.pay-kv{margin-top:6px}
+.ad-copy{display:inline-flex;align-items:center;gap:8px;border:1px dashed #cdbd9a;background:#fff8e8;border-radius:8px;padding:4px 8px;cursor:pointer;color:inherit}.ad-copy code{font:600 14px ui-monospace,monospace}.ad-copy svg{width:14px;height:14px;color:var(--metal-gold)}
+.ad-proof{display:block;width:100%;border:1px solid #e0d3b8;border-radius:12px;background:#fff;padding:0;overflow:hidden;cursor:zoom-in;max-height:420px}.ad-proof img{width:100%;max-height:420px;object-fit:contain;display:block}
+.ad-proof-skel{display:flex;align-items:center;justify-content:center;gap:8px;height:140px;border-radius:12px;background:#f6efdd;color:var(--ink-soft)}
+.ad-lightbox{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:20px;background:rgba(15,4,8,.92);cursor:zoom-out}.ad-lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;background:#fff}.ad-lightbox .ad-x{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff}
+.ad-qr-up{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.ad-qr-up>div:last-child{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ad-qr-box{width:132px;height:132px;border-radius:12px;border:1px dashed #cdbd9a;background:#fff;display:grid;place-items:center;color:#b9a67a;flex-shrink:0;overflow:hidden}.ad-qr-box img{width:100%;height:100%;object-fit:contain}.ad-qr-box svg{width:44px;height:44px}
+.ad-applicants{list-style:none;margin:0;padding:0}.ad-applicants li{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #f0e6d0}.ad-applicants li:last-child{border:0}
+.ad-applicants li>div{flex:1;min-width:0}.ad-applicants b{display:block;overflow-wrap:anywhere}.ad-applicants small{display:block;color:var(--ink-soft);font-size:12.5px;overflow-wrap:anywhere}
+@media(max-width:640px){.ad-applicants li{flex-wrap:wrap}.ad-applicants li>div{flex-basis:100%}.ad-rv.compact{flex-wrap:wrap}}
+
+/* ── Support: WhatsApp help on every student page ── */
+.support{position:fixed;z-index:70;display:grid;justify-items:end;gap:10px;pointer-events:none}
+.support>*{pointer-events:auto}
+.support.floating{right:max(16px,env(safe-area-inset-right));bottom:calc(env(safe-area-inset-bottom) + 18px)}
+.support.docked{right:max(12px,env(safe-area-inset-right));top:calc(env(safe-area-inset-top) + 66px)}
+.support-fab{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px 0 14px;border-radius:99px;border:1px solid #1da851;background:#25d366;color:#06301a;font:700 14.5px var(--font-sans);box-shadow:0 10px 30px -8px rgba(0,0,0,.55);cursor:pointer;transition:transform .2s}
+.support-fab svg{width:22px;height:22px}.support-fab:hover{transform:translateY(-2px)}.support-fab:focus-visible,.help-pill:focus-visible{outline:3px solid var(--champagne);outline-offset:3px}
+.help-pill{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 13px 0 10px;border-radius:99px;border:1px solid color-mix(in oklab,#25d366 55%,transparent);background:color-mix(in oklab,#25d366 16%,var(--midnight));color:#b9f5d0;font:600 13px var(--font-sans);cursor:pointer;transition:background .2s}
+.help-pill svg{width:17px;height:17px;color:#25d366}.help-pill:hover{background:color-mix(in oklab,#25d366 26%,var(--midnight))}
+.help-pill[aria-expanded="true"]{background:#25d366;color:#06301a}.help-pill[aria-expanded="true"] svg{color:#06301a}
+.dn-bar-right{display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:40px}
+.support-card{position:relative;width:min(340px,calc(100vw - 24px));padding:20px 18px 16px;border-radius:18px;background:#fffaf0;color:var(--ink);box-shadow:0 24px 60px -16px rgba(0,0,0,.6),0 0 0 1px color-mix(in oklab,var(--antique) 55%,transparent);animation:support-in .35s var(--ease-out) both;display:grid;gap:8px}
+@keyframes support-in{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.support-card h2{font:600 24px/1.1 var(--font-display);color:var(--burgundy);padding-right:28px}.support-card p{font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+.support-ico{width:26px;height:26px;color:var(--metal-gold)}
+.support-x{position:absolute;top:10px;right:10px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:0;background:transparent;color:var(--ink-soft);cursor:pointer}.support-x svg{width:18px;height:18px}
+.support-err{padding:8px 10px;border-radius:10px;background:#fde1de;color:#7d231c!important;font-size:13px!important;overflow-wrap:anywhere}
+.support-wa{background:#25d366!important;border-color:#1da851!important;color:#06301a!important;text-decoration:none}.support-wa svg{width:18px;height:18px}
+.support-mail,.support-hours{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-soft);overflow-wrap:anywhere}.support-mail{color:var(--burgundy);text-decoration:underline}.support-mail svg,.support-hours svg{width:15px;height:15px;flex-shrink:0}
+.support-line{margin-top:12px;justify-content:center}.support-line a{color:inherit}
+@media(min-width:900px){.support.floating{bottom:28px;right:28px}}
+@media(max-width:380px){.help-pill span{display:none}.help-pill{padding:0 10px}}
+@media print{.support,.help-pill{display:none}}
+@media(prefers-reduced-motion:reduce){.support-card{animation:none}}
+
+/* Waiting screen: calm and flicker-free — only transform/opacity animate (compositor), no blend-mode layer or box-shadow repaint under it */
+.dn-calm::after{display:none}
+.dn-calm .dn-lamps i,.dn-calm .dn-mandala{animation:none!important}
+.await-icon{position:relative;animation:none!important;box-shadow:none}
+.await-icon::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--warm-gold);opacity:0;animation:await-ring 2.6s ease-out infinite;will-change:transform,opacity;pointer-events:none}
+@keyframes await-ring{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.55);opacity:0}}
+.await-icon svg{backface-visibility:hidden}
+.await-card{transform:translateZ(0)}
+@media(prefers-reduced-motion:reduce){.await-icon::after{animation:none}}
+
+/* QR: round download button on the lower-left of the code; "Open payment app" below it */
+.pay-qr-wrap{position:relative;width:min(270px,76vw)}.pay-qr-wrap img{width:100%}
+.pay-qr-dl{position:absolute;left:10px;bottom:10px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid color-mix(in oklab,var(--metal-gold) 55%,transparent);background:#fffaf0;color:var(--burgundy);box-shadow:0 4px 12px -4px rgba(0,0,0,.45);padding:0}
+.pay-qr-dl svg{width:18px;height:18px}
+.pay-app{width:min(270px,76vw);display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:2px;text-decoration:none}
+.pay-app svg{width:18px;height:18px}.pay-app-hint{display:block;max-width:34ch;font-size:12px;color:var(--ink-soft);line-height:1.4}

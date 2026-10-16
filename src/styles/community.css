@@ -1,0 +1,54 @@
+/* ── Community room ── */
+.cm-screen{height:100dvh;overflow:hidden}
+.cm{position:relative;display:flex;flex-direction:column;flex:1;min-height:0;width:100%;max-width:640px;margin:0 auto;padding:0 12px calc(var(--safe-b,0px) + 8px)}
+.cm-live{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:99px;border:1px solid color-mix(in oklab,var(--ok) 50%,transparent);background:color-mix(in oklab,var(--ok) 12%,transparent);color:#8ff0c6;font:600 13px var(--font-sans)}
+.cm-live i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 color-mix(in oklab,var(--ok) 70%,transparent);animation:cm-pulse 2s infinite}
+@keyframes cm-pulse{70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.cm-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 4px 10px}
+.cm-bar b{display:block;font:600 19px var(--font-display);color:var(--champagne);letter-spacing:.01em}.cm-bar small{display:block;font-size:12px;color:color-mix(in oklab,var(--parchment) 66%,transparent);margin-top:2px}
+.cm-rules-btn{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 13px;border-radius:99px;border:1px solid color-mix(in oklab,var(--antique) 45%,transparent);background:transparent;color:var(--champagne);font:600 13px var(--font-sans);cursor:pointer}.cm-rules-btn svg{width:15px;height:15px}
+.cm-rules{position:relative;margin:0 0 10px;padding:16px 18px;border-radius:16px;background:var(--paper-grain),linear-gradient(180deg,var(--ivory),var(--parchment));color:var(--ink);box-shadow:0 14px 34px -18px rgba(0,0,0,.7),0 0 0 1px color-mix(in oklab,var(--antique) 55%,transparent);animation:fetched-in .3s ease both}
+.cm-rules h2{display:flex;align-items:center;gap:8px;font:600 21px var(--font-display);color:var(--burgundy);margin-bottom:8px}.cm-rules h2 svg{width:18px;height:18px;color:var(--metal-gold)}
+.cm-rules ul{margin:0 0 8px;padding-left:18px;font-size:14px;line-height:1.55}.cm-rules p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.cm-x{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:0;background:rgba(0,0,0,.06);color:inherit;cursor:pointer}.cm-x svg{width:15px;height:15px}
+.cm-note{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:9px 12px;border-radius:12px;font-size:13px;background:color-mix(in oklab,var(--parchment) 14%,transparent);color:var(--parchment)}.cm-note svg{width:16px;height:16px;flex-shrink:0}
+.cm-note.warn{background:color-mix(in oklab,var(--warm-gold) 20%,var(--midnight));color:#ffe3a3}.cm-note button{margin-left:auto;display:grid;place-items:center;border:0;background:transparent;color:inherit;cursor:pointer;padding:2px}.cm-note button svg{width:14px;height:14px}
+.cm-stream{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:6px 2px 10px;display:flex;flex-direction:column;gap:3px;scrollbar-width:thin;scrollbar-color:color-mix(in oklab,var(--antique) 40%,transparent) transparent}
+.cm-empty{margin:auto;text-align:center;color:color-mix(in oklab,var(--parchment) 75%,transparent);padding:30px 20px}.cm-empty svg{width:34px;height:34px;color:var(--antique)}.cm-empty h2{font:600 24px var(--font-display);color:var(--champagne);margin:8px 0 4px}.cm-empty p{font-size:14px;margin:0}
+.cm-day{display:flex;justify-content:center;margin:10px 0 6px}.cm-day span{padding:3px 12px;border-radius:99px;background:color-mix(in oklab,var(--parchment) 12%,transparent);color:color-mix(in oklab,var(--parchment) 78%,transparent);font:600 11.5px var(--font-sans);letter-spacing:.04em}
+.cm-msg{display:flex;align-items:flex-end;gap:8px;max-width:100%}.cm-msg.head{margin-top:8px}
+.cm-msg.mine{justify-content:flex-end}
+.cm-av{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;flex-shrink:0;font:700 11px var(--font-sans);color:#2a0f19;margin-bottom:2px}.cm-av.ghost{background:transparent}
+.cm-bub{position:relative;max-width:min(82%,460px);padding:7px 11px 6px;border-radius:4px 16px 16px 16px;background:linear-gradient(180deg,#fbf6ec,var(--ivory));color:var(--ink);box-shadow:0 2px 10px -6px rgba(0,0,0,.6),0 0 0 1px color-mix(in oklab,var(--antique) 35%,transparent);overflow-wrap:anywhere}
+.cm-msg:not(.head):not(.mine) .cm-bub{border-top-left-radius:16px}
+.cm-who{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-bottom:1px}.cm-who b{font:700 13.5px var(--font-sans);filter:brightness(.62) saturate(1.4)}.cm-who small{font-size:11px;color:var(--ink-soft)}
+.cm-bub p{margin:0;font-size:15px;line-height:1.4;white-space:pre-wrap}.cm-bub time{display:block;text-align:right;font-size:10.5px;color:color-mix(in oklab,var(--ink-soft) 80%,transparent);margin-top:1px}
+.cm-msg.mine .cm-bub{border-radius:16px 4px 16px 16px;background:var(--gold-foil,linear-gradient(135deg,#f4d58d,#c9a45c));color:#2a0f19;box-shadow:0 6px 16px -10px var(--warm-gold)}.cm-msg.mine .cm-bub time{color:rgba(42,15,25,.6)}
+.cm-msg.admin{justify-content:center}.cm-msg.admin .cm-bub{max-width:min(92%,520px);border-radius:14px;background:linear-gradient(180deg,#6a2036,#400f1f);color:var(--champagne);box-shadow:0 0 0 1px var(--antique),0 8px 20px -12px #000}
+.cm-msg.admin .cm-bub time{color:color-mix(in oklab,var(--champagne) 65%,transparent)}.cm-admin-tag{display:inline-flex;align-items:center;gap:5px;font:700 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--warm-gold);margin-bottom:2px}.cm-admin-tag svg{width:13px;height:13px}
+.cm-jump{position:absolute;right:18px;bottom:calc(var(--cm-dock,150px) + 12px);display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 13px;border:0;border-radius:99px;background:var(--gold-foil,#c9a45c);color:#2a0f19;font:700 12.5px var(--font-sans);box-shadow:0 8px 18px -8px #000;cursor:pointer;z-index:5}.cm-jump svg{width:14px;height:14px}
+.cm-dock{padding-top:6px}
+.cm-composer{position:relative;display:grid;grid-template-columns:1fr 46px;gap:8px;align-items:end}
+.cm-composer textarea{width:100%;resize:none;max-height:120px;padding:12px 14px;border-radius:20px;border:1.5px solid color-mix(in oklab,var(--antique) 45%,transparent);background:#fffaf0;color:var(--ink);font:500 16px/1.35 var(--font-sans);outline:none}
+.cm-composer textarea:focus{border-color:var(--metal-gold);box-shadow:0 0 0 4px color-mix(in oklab,var(--warm-gold) 28%,transparent)}
+.cm-send{display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;background:var(--gold-foil,#c9a45c);color:#2a0f19;cursor:pointer;box-shadow:0 8px 18px -10px var(--warm-gold);font:700 15px var(--font-sans)}.cm-send:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}.cm-send svg{width:20px;height:20px}
+.cm-count{grid-column:1/-1;margin:0;padding:0 8px;font-size:11.5px;color:color-mix(in oklab,var(--parchment) 66%,transparent)}.cm-count b{color:var(--champagne)}
+.cm-state{display:flex;gap:12px;padding:14px 16px;border-radius:16px;background:color-mix(in oklab,var(--parchment) 11%,var(--midnight));border:1px solid color-mix(in oklab,var(--antique) 30%,transparent);color:var(--parchment)}
+.cm-state>svg{width:24px;height:24px;color:var(--antique);flex-shrink:0;margin-top:2px}.cm-state b{display:block;font:600 16px var(--font-sans);color:var(--champagne)}.cm-state p{margin:3px 0 0;font-size:13.5px;line-height:1.5;color:color-mix(in oklab,var(--parchment) 82%,transparent)}
+.cm-state q{display:block;margin:6px 0;padding:7px 10px;border-radius:10px;background:rgba(0,0,0,.28);color:#ffd2cc;font-style:normal;font-size:13px}
+.cm-state.kicked{border-color:color-mix(in oklab,var(--bad) 50%,transparent)}.cm-state.kicked>svg{color:#f08a80}
+.cm-state form{display:grid;gap:8px;margin-top:8px}.cm-state textarea{width:100%;padding:10px 12px;border-radius:12px;border:1.5px solid color-mix(in oklab,var(--antique) 45%,transparent);background:#fffaf0;color:var(--ink);font:500 15px/1.4 var(--font-sans);resize:vertical;outline:none}
+.cm-err{color:#ffb4ab!important;font-size:12.5px!important}.cm-link{display:inline-block;margin-top:6px;font-weight:600;color:var(--warm-gold)}
+.cm-modal-back{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:20px;background:rgba(10,3,6,.72);backdrop-filter:blur(3px);animation:fetched-in .2s ease both}
+.cm-modal{width:100%;max-width:380px;padding:24px 22px 20px;border-radius:20px;text-align:center;background:var(--paper-grain),linear-gradient(180deg,var(--ivory),var(--parchment));color:var(--ink);box-shadow:0 30px 70px -20px #000,0 0 0 1px var(--antique)}
+.cm-modal>svg{width:42px;height:42px;margin-bottom:6px}.cm-modal.warn>svg{color:#c27a12}.cm-modal.bad>svg{color:var(--bad)}
+.cm-modal h2{font:600 24px/1.15 var(--font-display);color:var(--burgundy);margin-bottom:8px}.cm-modal p{font-size:14.5px;line-height:1.5;color:var(--ink-soft);margin:0 0 16px}
+.cm-notify{position:relative;display:flex;align-items:center;gap:12px;margin:4px 0 6px;padding:10px 40px 10px 14px;border-radius:14px;background:color-mix(in oklab,var(--warm-gold) 16%,var(--midnight));border:1px solid color-mix(in oklab,var(--antique) 40%,transparent);color:var(--parchment)}
+.cm-notify>svg{width:22px;height:22px;color:var(--warm-gold);flex-shrink:0}.cm-notify b{display:block;font-size:14px;color:var(--champagne)}.cm-notify p{margin:0;font-size:12.5px;color:color-mix(in oklab,var(--parchment) 75%,transparent)}.cm-notify .btn{margin-left:auto;flex-shrink:0}.cm-notify .cm-x{background:rgba(255,255,255,.08);color:var(--parchment)}
+@media (prefers-reduced-motion:reduce){.cm-live i{animation:none}.cm-rules,.cm-modal-back{animation:none}}
+
+/* ── Monitoring notice and teacher highlight ── */
+.cm-watch{display:flex;gap:10px;align-items:flex-start;margin:0 0 8px;padding:9px 12px;border-radius:12px;font-size:12.5px;line-height:1.4;background:color-mix(in oklab,var(--warm-gold) 16%,var(--midnight));border:1px solid color-mix(in oklab,var(--warm-gold) 45%,transparent);color:#ffe3a3}
+.cm-watch svg{width:18px;height:18px;flex:none;margin-top:1px}.cm-watch p{margin:0}.cm-watch b{color:#fff1c7}
+.cm-who .badge.teacher{height:19px;padding:0 7px;font-size:10px;margin-left:0}.cm-who .badge.teacher svg{width:11px;height:11px}
+.cm-msg.teacher .cm-bub{border:1px solid #c9a45c;box-shadow:0 0 0 1px rgba(244,213,141,.25),0 6px 18px -10px rgba(244,213,141,.6)}
