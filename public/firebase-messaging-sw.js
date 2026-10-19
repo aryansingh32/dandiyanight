@@ -1,6 +1,6 @@
 /* Shows chat notifications while the site is closed. These values are the public web-app settings, not secrets. */
 importScripts('https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js', 'https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging-compat.js');
-firebase.initializeApp({ apiKey: 'AIzaSyCz9t-PLifU5FrW_sapxvlCI-JOMue1eZQ', authDomain: 'dandiya-night-2k26-rrgi.firebaseapp.com', projectId: 'dandiya-night-2k26-rrgi', appId: '1:481700840298:web:50e06935b55a4b2a5c5b13', messagingSenderId: '481700840298' });
+firebase.initializeApp({ apiKey: 'YOUR_API_KEY', authDomain: 'YOUR_PROJECT.firebaseapp.com', projectId: 'YOUR_PROJECT', appId: 'YOUR_APP_ID', messagingSenderId: 'YOUR_SENDER_ID' });
 const messaging = firebase.messaging();
 messaging.onBackgroundMessage(payload => {
   const n = payload.notification || {};
